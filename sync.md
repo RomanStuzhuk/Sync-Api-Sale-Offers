@@ -2,7 +2,7 @@
 
 ## Ендпоїнти
 
-### 1. Отримання JWT токена
+### 1. Отримання JWT-токен
 - **Метод:** `POST`
 - **URL:** `{{url}}/api/sync/auth/login`
 - **Тіло запиту (JSON):**
@@ -27,13 +27,13 @@
   
 ---
 
-### 3. Додавання / оновлення товару офера
+### 3. Додавання / оновлення товарного офера
 - **Метод:** `POST`
 - **URL:** `{{url}}/api/sync/sale-offers/add-update-offers`
 - **Заголовок:**  
   `Authorization: Bearer <JWT_TOKEN>`
 - **Тіло запиту (JSON):**  
-  Див. [приклад у файлі колекції](#) (поля `external_id`, `external_url`, `price_before`, переклади, `addresses` тощо).
+  Див. [приклад у файлі колекції](https://github.com/RomanStuzhuk/Sync-Api-Sale-Offers/blob/main/SyncAPISaleOffers.postman_collection) (поля `external_id`, `external_url`, `price_before`, переклади, `addresses` тощо).
 - **Опис:**  
   Створює новий офер для вказаних адрес.
   
@@ -45,9 +45,9 @@
 - **Заголовок:**  
   `Authorization: Bearer <JWT_TOKEN>`
 - **Тіло запиту (JSON):**  
-  Див. [приклад у файлі колекції](#) (поля `page`, `perPage`).
+  Див. [приклад у файлі колекції](https://github.com/RomanStuzhuk/Sync-Api-Sale-Offers/blob/main/SyncAPISaleOffers.postman_collection) (поля `page`, `perPage`).
 - **Опис:**  
-  Отримання списку оферів з перекладом та адресами.
+  ООтримання списку оферів із перекладами та адресами.
   
 ---
 
@@ -67,7 +67,7 @@
 - **Заголовок:**  
   `Authorization: Bearer <JWT_TOKEN>`
 - **Опис:**  
-  Видаляє всі офери для магазину які були додані через АПІ.
+  Видаляє всі офери магазину, додані через API.
   
 ---
 
@@ -77,9 +77,9 @@
 - **Заголовок:**  
   `Authorization: Bearer <JWT_TOKEN>`
 - **Тіло запиту (JSON):**  
-  Див. [приклад у файлі колекції](#) (поля `city`, `address`).
+  Див. [приклад у файлі колекції](https://github.com/RomanStuzhuk/Sync-Api-Sale-Offers/blob/main/SyncAPISaleOffers.postman_collection) (поля `city`, `address`).
 - **Опис:**  
-  Додає адреси до офера за його `external_id`.
+  Додає адреси до офера, за його `external_id`.
   
 ---
 
@@ -89,9 +89,9 @@
 - **Заголовок:**  
   `Authorization: Bearer <JWT_TOKEN>`
 - **Тіло запиту (JSON):**  
-  Див. [приклад у файлі колекції](#) (поля `city`, `address`).
+  Див. [приклад у файлі колекції](https://github.com/RomanStuzhuk/Sync-Api-Sale-Offers/blob/main/SyncAPISaleOffers.postman_collection) (поля `city`, `address`).
 - **Опис:**  
-  Видаляє вказані адреси для офера за його `external_id.
+  Видаляє вказані адреси для офера, за його `external_id`.
   
 ---
 
@@ -132,7 +132,7 @@
 ## Приклади помилок валідації
 - Неправильний формат дати: `sale_start_date: "2025/07/01"` (має бути `YYYY-MM-DD`).
 - Відсутнє обов’язкове поле: `external_id` не передано.
-- Недопустиме значення: `price_before: "20$"` (має бути цілим числом без символів).
+- Неприпустиме значення: `price_before: "20$"` (має бути числовим значенням без символів).
 - Перевищення довжини: `image` посилання довше 512 символів.
 
 ## Приклад JSON
