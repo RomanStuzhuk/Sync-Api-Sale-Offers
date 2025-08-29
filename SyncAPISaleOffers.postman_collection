@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "86cbaac8-15be-4676-818b-7ff19aee8a6d",
+		"name": "Sync API Sale Offers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21978387"
+	},
+	"item": [
+		{
+			"name": "Auth get JWT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"syncapi@gotoshop.ua\",\r\n    \"password\" : \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/api/sync/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh JWT token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"url": "{{url}}/api/sync/auth/refresh"
+			},
+			"response": []
+		},
+		{
+			"name": "Create or update Sale Offers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"offers\" : [\r\n        {\r\n            \"image\" : \"https://images.silpo.ua/v2/products/1600x1600/webp/7de92507-3a38-4ddd-b14f-be7cb182b15e.png\",\r\n            \"external_id\" : \"silpo_test_1\",\r\n            \"external_url\" : \"https://silpo.ua/product/avokado-ready-to-eat-787133\",\r\n            \"is_alcohol\" : false,\r\n            \"price_before\" : 90.99,\r\n            \"price_after\" : 66.99,\r\n            \"sale_start_date\" : \"2025-08-26\",\r\n            \"sale_end_date\" : \"2025-08-31\",\r\n            \"addresses\" : [\r\n                {\r\n                    \"city\" : \"Київ\",\r\n                    \"address\" : \"вул. Білоруська, 2\"\r\n                },\r\n                {\r\n                    \"city\" : \"Київ\",\r\n                    \"address\" : \"вул. Підлісна, 1\"\r\n                }\r\n            ],\r\n            \"uk\" : {\r\n                \"name\" : \"Авокадо Ready to eat, 1шт/уп\"\r\n            },\r\n            \"ru\" : {\r\n                \"name\" : \"Авокадо Ready to eat, 1шт/уп\"\r\n            }\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/api/sync/sale-offers/add-update-offers"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Sale Offer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/sync/sale-offers/remove-offer/::external_id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"sync",
+						"sale-offers",
+						"remove-offer",
+						"::external_id"
+					],
+					"variable": [
+						{
+							"key": ":external_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sale Offers list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"page\" : 1,\r\n    \"perPage\" : 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/api/sync/sale-offers/list-offers"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove all offers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "{{url}}/api/sync/sale-offers/remove-all-offers"
+			},
+			"response": []
+		},
+		{
+			"name": "Add addresses to sale offer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"addresses\" : [\r\n        {\r\n            \"city\" : \"Київ\",\r\n            \"address\" : \"вул. Чорнобильська, 3\"\r\n        },\r\n        {\r\n            \"city\" : \"Київ\",\r\n            \"address\" : \"вул. Оленівська, 3\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/sync/sale-offers/add-addresses/::external_id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"sync",
+						"sale-offers",
+						"add-addresses",
+						"::external_id"
+					],
+					"variable": [
+						{
+							"key": ":external_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove addresses from sale offer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"addresses\" : [\r\n        {\r\n            \"city\" : \"Київ\",\r\n            \"address\" : \"вул. Чорнобильська, 3\"\r\n        },\r\n        {\r\n            \"city\" : \"Київ\",\r\n            \"address\" : \"вул. Оленівська, 3\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/sync/sale-offers/remove-addresses/::external_id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"sync",
+						"sale-offers",
+						"remove-addresses",
+						"::external_id"
+					],
+					"variable": [
+						{
+							"key": ":external_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
