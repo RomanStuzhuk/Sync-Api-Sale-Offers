@@ -136,33 +136,34 @@
 - Перевищення довжини: `image` посилання довше 512 символів.
 
 ## Приклад JSON
-```{
-    "offers" : [
-        {
-            "image" : "https://images.silpo.ua/v2/products/1600x1600/webp/7de92507-3a38-4ddd-b14f-be7cb182b15e.png",
-            "external_id" : "silpo_test_1",
-            "external_url" : "https://silpo.ua/product/avokado-ready-to-eat-787133",
-            "is_alcohol" : false,
-            "price_before" : 90.99,
-            "price_after" : 66.99,
-            "sale_start_date" : "2025-08-26",
-            "sale_end_date" : "2025-08-31",
-            "addresses" : [
-                {
-                    "city" : "Київ",
-                    "address" : "вул. Білоруська, 2"
-                },
-                {
-                    "city" : "Київ",
-                    "address" : "вул. Підлісна, 1"
-                }
-            ],
-            "uk" : {
-                "name" : "Авокадо Ready to eat, 1шт/уп"
-            },
-            "ru" : {
-                "name" : "Авокадо Ready to eat, 1шт/уп"
-            }
-        }
-    ]
+```
+{
+  "offers" : [
+      {
+          "image" : "https://images.silpo.ua/v2/products/1600x1600/webp/7de92507-3a38-4ddd-b14f-be7cb182b15e.png",
+          "external_id" : "silpo_test_1",
+          "external_url" : "https://silpo.ua/product/avokado-ready-to-eat-787133",
+          "is_alcohol" : false,
+          "price_before" : 90.99,
+          "price_after" : 66.99,
+          "sale_start_date" : "2025-08-26",
+          "sale_end_date" : "2025-08-31",
+          "addresses" : [
+              {
+                  "city" : "Київ",
+                  "address" : "вул. Білоруська, 2"
+              },
+              {
+                  "city" : "Київ",
+                  "address" : "вул. Підлісна, 1"
+              }
+          ],
+          "uk" : {
+              "name" : "Авокадо Ready to eat, 1шт/уп"
+          },
+          "ru" : {
+              "name" : "Авокадо Ready to eat, 1шт/уп"
+          }
+      }
+  ]
 }
